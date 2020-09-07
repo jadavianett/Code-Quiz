@@ -11,13 +11,13 @@
 
 }
 
-
-button:hover {
+/* not working for some reason  */
+.btn:hover {
     border-color: black;
 
 }
-
-#start-btn {
+/* not working for some reason */
+.start-btn {
     font-size: 1.4 rem;
     padding: 10px, 20px;
 
@@ -37,5 +37,7 @@ button {
 
 }
 
-/* hover not working for some reason */
+.hide {
+    display: none;
+}
 
