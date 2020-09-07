@@ -1,5 +1,8 @@
 var startButton = document.querySelector("#start-btn");
 var questionContainerEl = document.querySelector("#question-container");
+var secondsLeftEl = document.querySelector("#seconds-left");
+var highscoresEl = document.querySelector("#high-scores");
+var secondsLeft = 60;
 var questions = [
   {
     question: "Commonly used data types do NOT include",
@@ -50,6 +53,7 @@ var questions = [
   },
 ];
 
+
 startButton.addEventListener("click", startQuiz);
 
 function startQuiz() {
@@ -61,3 +65,17 @@ function startQuiz() {
 function setNextQuestion() {}
 
 function selectAnswer() {}
+
+function setTime() {
+  var timerInterval = setInterval(function() {
+    secondsLeft--;
+    secondsLeftEl.textContent = "Time left: " + secondsLeft;
+
+    if(secondsLeft === 0) {
+      clearInterval(timerInterval);
+    }
+
+  }, 1000);
+}
+
+setTime();
