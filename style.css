@@ -1,5 +1,5 @@
 
-body {
+.container {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -8,8 +8,20 @@ body {
     margin: 0;
     height: 40vh;
     width: 100vw;
+
 }
 
+
+button:hover {
+    border-color: black;
+
+}
+
+#start-btn {
+    font-size: 1.4 rem;
+    padding: 10px, 20px;
+
+}
 button {
     background-color: palevioletred;
     border-radius: 8px;
@@ -17,3 +29,13 @@ button {
     border-style: hidden;
 
 }
+
+.btn-grid {
+    display: grid; 
+    gap: 10px;
+    margin:20px 0px;
+
+}
+
+/* hover not working for some reason */
+
