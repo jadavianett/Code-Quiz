@@ -6,7 +6,7 @@
     align-items: center;
     padding: 0;
     margin: 0;
-    height: 40vh;
+    height: 55vh;
     width: 100vw;
 
 }
@@ -41,10 +41,13 @@ button {
     display: none;
 }
 
-#high-scores {
+ #high-scores {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     float: left;
 
 }
 
 #seconds-left {
-    align-items: right; 
-}
+    text-align: right; 
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+} 
