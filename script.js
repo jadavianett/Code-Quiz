@@ -2,8 +2,10 @@ var startButton = document.querySelector("#start-btn");
 var questionContainerEl = document.querySelector("#question-container");
 var secondsLeftEl = document.querySelector("#seconds-left");
 var highscoresEl = document.querySelector("#high-scores");
+var questionEl = document.querySelector("#question")
+var answerButtonsEl = document.querySelector("#answer-btns")
 var secondsLeft = 60;
-var questions = [
+var question = [
   {
     question: "Commonly used data types do NOT include",
     answers: [
@@ -53,16 +55,28 @@ var questions = [
   },
 ];
 
+let shuffledQuestions, currentQuestionIndex; 
 
 startButton.addEventListener("click", startQuiz);
 
 function startQuiz() {
   // console.log("you pressed the start button.");
   startButton.classList.add("hide");
+  shuffledQuestions = question.sort(() => Math.random() - .5)
+  currentQuestionIndex = 0;
   setNextQuestion();
 }
 
-function setNextQuestion() {}
+function setNextQuestion() {
+  showQuestion(shuffledQuestions[currentQuestionIndex]);
+}
+
+function showQuestion(question) {
+  questionEl.innerText = question.question;
+ 
+  }
+
+}
 
 function selectAnswer() {}
 
