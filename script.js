@@ -73,10 +73,15 @@ function setNextQuestion() {
 
 function showQuestion(question) {
   questionEl.innerText = question.question;
- 
+  question.answers.forEach(answers => {
+    const button = document.createElement("button");
+    button.innerText = answers.text;
+    button.classList.add("btn");
+  button.addEventListener("click", selectAnswer)
+  answerButtonsEl.appendChild(button)
+  })
   }
 
-}
 
 function selectAnswer() {}
 
