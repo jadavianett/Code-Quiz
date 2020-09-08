@@ -68,7 +68,15 @@ function startQuiz() {
 }
 
 function setNextQuestion() {
+  resetState();
   showQuestion(shuffledQuestions[currentQuestionIndex]);
+}
+
+function resetState () {
+  while (answerButtonsEl.firstChild) {
+    answerButtonsEl.removeChild
+    (answerButtonsEl.firstChild)
+  }
 }
 
 function showQuestion(question) {
@@ -77,8 +85,8 @@ function showQuestion(question) {
     const button = document.createElement("button");
     button.innerText = answers.text;
     button.classList.add("btn");
-  button.addEventListener("click", selectAnswer)
-  answerButtonsEl.appendChild(button)
+  button.addEventListener("click", selectAnswer);
+  answerButtonsEl.appendChild(button);
   })
   }
 
