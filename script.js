@@ -60,10 +60,10 @@ var questionArray = [
 var currentQuestionIndex = 0;
 
 startButton.addEventListener("click", startQuiz);
-nextButton.addEventListener("click", () => {
-  currentQuestionIndex++;
-  resetState;
-});
+// nextButton.addEventListener("click", () => {
+//   currentQuestionIndex++;
+//   resetState;
+// });
 
 
 function startQuiz() {
@@ -80,13 +80,11 @@ function startQuiz() {
 
 function showNextQuestion(question) {
   questionEl.innerText = questionArray[currentQuestionIndex].question;
+  answerButtonsEl.innerHTML = "";
   questionArray[currentQuestionIndex].answers.forEach((answer => {
-    const button = document.createElement("button");
-    button.innerText = answer.text;
-    button.classList.add("btn");
-  button.addEventListener("click", selectAnswer);
-  answerButtonsEl.appendChild(button);
-  resetState();
+  answerButtonsEl.innerHTML +=`
+  <button class="btn" onclick = "javascript: selectAnswer()">${answer.text}</button>
+  `;
   }));
   }
 
@@ -96,6 +94,11 @@ function showNextQuestion(question) {
 
   }
 
+  function selectAnswer () {
+    console.log("I was clicked.");
+    currentQuestionIndex++;
+    showNextQuestion();
+  }
   function resetAnswers () {
     while (answerButtonsEl.firstChild) {
       answerButtonsEl.removeChild(answerButtonsEl.firstChild);
@@ -103,16 +106,6 @@ function showNextQuestion(question) {
     nextButton.classList.add("hide");
   }
 
-// function selectAnswer() {
-//   if (answers.text.correct == true) {
-//     //show next question
-//   } else {
-//     //show 'wrong' 
-//     //show next question 
-//     // deduct time by 10 
-//   }
- 
-// }
 
 function setTime() {
   var timerInterval = setInterval(function() {
