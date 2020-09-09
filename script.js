@@ -1,11 +1,13 @@
 var startButton = document.querySelector("#start-btn");
+var nextButton = document.querySelector("#next-btn");
 var questionContainerEl = document.querySelector("#question-container");
 var secondsLeftEl = document.querySelector("#seconds-left");
 var highscoresEl = document.querySelector("#high-scores");
 var questionEl = document.querySelector("#question")
+var welcomePage = document.querySelector("#welcome-page");
 var answerButtonsEl = document.querySelector("#answer-btns")
-var secondsLeft = 60;
-var question = [
+var secondsLeft = 120;
+var questionArray = [
   {
     question: "Commonly used data types do NOT include",
     answers: [
@@ -55,43 +57,62 @@ var question = [
   },
 ];
 
-let shuffledQuestions, currentQuestionIndex; 
+var currentQuestionIndex = 0;
 
 startButton.addEventListener("click", startQuiz);
+nextButton.addEventListener("click", () => {
+  currentQuestionIndex++;
+  resetState;
+});
+
 
 function startQuiz() {
-  // console.log("you pressed the start button.");
-  startButton.classList.add("hide");
-  shuffledQuestions = question.sort(() => Math.random() - .5)
+  setTime();
   currentQuestionIndex = 0;
-  setNextQuestion();
+  answerButtonsEl.classList.remove("hide");
+  questionEl.classList.remove("hide");
+  welcomePage.classList.add("hide");
+  startButton.classList.add("hide");
+  nextButton.classList.remove("hide");
+  showNextQuestion();
 }
 
-function setNextQuestion() {
-  resetState();
-  showQuestion(shuffledQuestions[currentQuestionIndex]);
-}
 
-function resetState () {
-  while (answerButtonsEl.firstChild) {
-    answerButtonsEl.removeChild
-    (answerButtonsEl.firstChild)
-  }
-}
-
-function showQuestion(question) {
-  questionEl.innerText = question.question;
-  question.answers.forEach(answers => {
+function showNextQuestion(question) {
+  questionEl.innerText = questionArray[currentQuestionIndex].question;
+  questionArray[currentQuestionIndex].answers.forEach((answer => {
     const button = document.createElement("button");
-    button.innerText = answers.text;
+    button.innerText = answer.text;
     button.classList.add("btn");
   button.addEventListener("click", selectAnswer);
   answerButtonsEl.appendChild(button);
-  })
+  resetState();
+  }));
   }
 
+  function resetState () {
+    resetAnswers();
+    showNextQuestion();
 
-function selectAnswer() {}
+  }
+
+  function resetAnswers () {
+    while (answerButtonsEl.firstChild) {
+      answerButtonsEl.removeChild(answerButtonsEl.firstChild);
+    }
+    nextButton.classList.add("hide");
+  }
+
+// function selectAnswer() {
+//   if (answers.text.correct == true) {
+//     //show next question
+//   } else {
+//     //show 'wrong' 
+//     //show next question 
+//     // deduct time by 10 
+//   }
+ 
+// }
 
 function setTime() {
   var timerInterval = setInterval(function() {
@@ -105,4 +126,4 @@ function setTime() {
   }, 1000);
 }
 
-setTime();
+
