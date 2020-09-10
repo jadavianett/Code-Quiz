@@ -11,12 +11,7 @@
 
 }
 
-/* not working for some reason */
-.start-btn {
-    font-size: 1.4 rem;
-    padding: 10px, 20px;
 
-}
 button {
     background-color: palevioletred;
     border-radius: 8px;
