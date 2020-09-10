@@ -3,9 +3,9 @@ var nextButton = document.querySelector("#next-btn");
 var questionContainerEl = document.querySelector("#question-container");
 var secondsLeftEl = document.querySelector("#seconds-left");
 var highscoresEl = document.querySelector("#high-scores");
-var questionEl = document.querySelector("#question")
+var questionEl = document.querySelector("#question");
 var welcomePage = document.querySelector("#welcome-page");
-var answerButtonsEl = document.querySelector("#answer-btns")
+var answerButtonsEl = document.querySelector("#answer-btns");
 var secondsLeft = 120;
 var questionArray = [
   {
@@ -65,7 +65,6 @@ startButton.addEventListener("click", startQuiz);
 //   resetState;
 // });
 
-
 function startQuiz() {
   setTime();
   currentQuestionIndex = 0;
@@ -77,46 +76,58 @@ function startQuiz() {
   showNextQuestion();
 }
 
-
 function showNextQuestion(question) {
+  var currentBtn = 0;
   questionEl.innerText = questionArray[currentQuestionIndex].question;
   answerButtonsEl.innerHTML = "";
-  questionArray[currentQuestionIndex].answers.forEach((answer => {
-  answerButtonsEl.innerHTML +=`
-  <button class="btn" onclick = "javascript: selectAnswer()">${answer.text}</button>
+  questionArray[currentQuestionIndex].answers.forEach((answer) => {
+    currentBtn++
+    answerButtonsEl.innerHTML += `
+  <button class="btn" id=button${currentBtn} isCorrect = ${answer.correct} onclick = "javascript: selectAnswer(this)">${answer.text}</button>
   `;
-  }));
-  }
+  });
+}
 
-  function resetState () {
-    resetAnswers();
+function resetState() {
+  resetAnswers();
+  showNextQuestion();
+}
+
+function selectAnswer(event) {
+  
+  var btnClickedName = event.id;
+  var btnIsCorrect = document.getElementById(btnClickedName).getAttribute("isCorrect");
+
+  console.log(btnIsCorrect)
+  if (btnIsCorrect == "true") {
+    document.getElementById("info").innerHTML = "Correct Answer";
+    document.getElementById('isCorrect-answer').classList.remove("hide")
+    currentQuestionIndex++;
     showNextQuestion();
-
-  }
-
-  function selectAnswer () {
-    console.log("I was clicked.");
+  } else {
+    document.getElementById("info").innerHTML = "Wrong Answer";
+    document.getElementById('isCorrect-answer').classList.remove("hide")
+    secondsLeft = secondsLeft - 10;
     currentQuestionIndex++;
     showNextQuestion();
   }
-  function resetAnswers () {
-    while (answerButtonsEl.firstChild) {
-      answerButtonsEl.removeChild(answerButtonsEl.firstChild);
-    }
-    nextButton.classList.add("hide");
-  }
 
+
+}
+function resetAnswers() {
+  while (answerButtonsEl.firstChild) {
+    answerButtonsEl.removeChild(answerButtonsEl.firstChild);
+  }
+  nextButton.classList.add("hide");
+}
 
 function setTime() {
-  var timerInterval = setInterval(function() {
+  var timerInterval = setInterval(function () {
     secondsLeft--;
     secondsLeftEl.textContent = "Time left: " + secondsLeft;
 
-    if(secondsLeft === 0) {
+    if (secondsLeft === 0) {
       clearInterval(timerInterval);
     }
-
   }, 1000);
 }
-
-
