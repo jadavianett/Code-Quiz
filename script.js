@@ -79,6 +79,7 @@ function startQuiz() {
   showNextQuestion();
 }
 
+// shows next question and dynamically populates questions and answers
 function showNextQuestion(question) {
   var currentBtn = 0;
   questionEl.innerText = questionArray[currentQuestionIndex].question;
@@ -96,6 +97,7 @@ function resetState() {
   showNextQuestion();
 }
 
+// compares selected answer to correct answer and displays response accordingly
 function selectAnswer(event) {
   questionsAttempted++;
 
@@ -125,6 +127,7 @@ function resetAnswers() {
   nextButton.classList.add("hide");
 }
 
+//controls the timer
 function setTime() {
   var timerInterval = setInterval(function () {
     secondsLeft--;
@@ -136,6 +139,7 @@ function setTime() {
   }, 1000);
 }
 
+// unfinished function that would run once the end of the questionsArray is reached
 function endGame () {
   if (questionsAttempted<totalQuestions) {
     console.log("game is over")
