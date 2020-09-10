@@ -1,4 +1,4 @@
-
+/* styling for main container  */
 .container {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     display: flex;
@@ -11,7 +11,7 @@
 
 }
 
-
+/* button and button grid styling  */
 button {
     background-color: palevioletred;
     border-radius: 8px;
@@ -26,11 +26,12 @@ button {
     margin:20px 0px;
 
 }
-
+/* hide class allows me to dynamically manipulate with javascript */
 .hide {
     display: none;
 }
 
+/* provides styling for timer and high scores page */
  #high-scores {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
      float: left;
