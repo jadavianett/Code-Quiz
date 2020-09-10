@@ -1,5 +1,4 @@
-
-// DOM element targeting 
+// DOM element targeting
 var startButton = document.querySelector("#start-btn");
 var nextButton = document.querySelector("#next-btn");
 var questionContainerEl = document.querySelector("#question-container");
@@ -60,12 +59,12 @@ var questionArray = [
   },
 ];
 
-// setting variables to keep track of questions attempted 
+// setting variables to keep track of questions attempted
 var currentQuestionIndex = 0;
 var questionsAttempted = 0;
 var totalQuestions = 5;
 
-// starts the quiz 
+// starts the quiz
 startButton.addEventListener("click", startQuiz);
 
 function startQuiz() {
@@ -85,7 +84,7 @@ function showNextQuestion(question) {
   questionEl.innerText = questionArray[currentQuestionIndex].question;
   answerButtonsEl.innerHTML = "";
   questionArray[currentQuestionIndex].answers.forEach((answer) => {
-    currentBtn++
+    currentBtn++;
     answerButtonsEl.innerHTML += `
   <button class="btn" id=button${currentBtn} isCorrect = ${answer.correct} onclick = "javascript: selectAnswer(this)">${answer.text}</button>
   `;
@@ -102,23 +101,22 @@ function selectAnswer(event) {
   questionsAttempted++;
 
   var btnClickedName = event.id;
-  var btnIsCorrect = document.getElementById(btnClickedName).getAttribute("isCorrect");
+  var btnIsCorrect = document
+    .getElementById(btnClickedName)
+    .getAttribute("isCorrect");
 
-  
   if (btnIsCorrect == "true") {
     document.getElementById("info").innerHTML = "Correct Answer";
-    document.getElementById('isCorrect-answer').classList.remove("hide")
+    document.getElementById("isCorrect-answer").classList.remove("hide");
     currentQuestionIndex++;
     showNextQuestion();
   } else {
     document.getElementById("info").innerHTML = "Wrong Answer";
-    document.getElementById('isCorrect-answer').classList.remove("hide")
+    document.getElementById("isCorrect-answer").classList.remove("hide");
     secondsLeft = secondsLeft - 10;
     currentQuestionIndex++;
     showNextQuestion();
   }
-
-
 }
 function resetAnswers() {
   while (answerButtonsEl.firstChild) {
@@ -140,13 +138,13 @@ function setTime() {
 }
 
 // unfinished function that would run once the end of the questionsArray is reached
-function endGame () {
-  if (questionsAttempted<totalQuestions) {
-    console.log("game is over")
-  
-  //   answerButtonsEl.classList.add("hide");
-  // questionEl.classList.add("hide");
-  // welcomePage.classList.remove("hide");
-  // welcomePage.innerHTML("Quiz is over.");
+function endGame() {
+  if (questionsAttempted < totalQuestions) {
+    console.log("game is over");
+
+    //   answerButtonsEl.classList.add("hide");
+    // questionEl.classList.add("hide");
+    // welcomePage.classList.remove("hide");
+    // welcomePage.innerHTML("Quiz is over.");
   }
-  }
+}

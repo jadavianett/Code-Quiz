@@ -1,44 +1,40 @@
 /* styling for main container  */
 .container {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-    margin: 0px;
-    height: 80vh;
-    width: 100vw;
-
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  margin: 0px;
+  height: 80vh;
+  width: 100vw;
 }
 
 /* button and button grid styling  */
 button {
-    background-color: palevioletred;
-    border-radius: 8px;
-    transition-duration: 0.4s;
-    border-style: hidden;
-
+  background-color: palevioletred;
+  border-radius: 8px;
+  transition-duration: 0.4s;
+  border-style: hidden;
 }
 
 .btn-grid {
-    display: grid; 
-    gap: 10px;
-    margin:20px 0px;
-
+  display: grid;
+  gap: 10px;
+  margin: 20px 0px;
 }
 /* hide class allows me to dynamically manipulate with javascript */
 .hide {
-    display: none;
+  display: none;
 }
 
 /* provides styling for timer and high scores page */
- #high-scores {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-     float: left;
-
+#high-scores {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  float: left;
 }
 
 #seconds-left {
-    text-align: right; 
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-} 
+  text-align: right;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
