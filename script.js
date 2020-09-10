@@ -1,3 +1,5 @@
+
+// DOM element targeting 
 var startButton = document.querySelector("#start-btn");
 var nextButton = document.querySelector("#next-btn");
 var questionContainerEl = document.querySelector("#question-container");
@@ -7,6 +9,7 @@ var questionEl = document.querySelector("#question");
 var welcomePage = document.querySelector("#welcome-page");
 var answerButtonsEl = document.querySelector("#answer-btns");
 var secondsLeft = 120;
+// main question array of objects
 var questionArray = [
   {
     question: "Commonly used data types do NOT include",
@@ -57,13 +60,13 @@ var questionArray = [
   },
 ];
 
+// setting variables to keep track of questions attempted 
 var currentQuestionIndex = 0;
+var questionsAttempted = 0;
+var totalQuestions = 5;
 
+// starts the quiz 
 startButton.addEventListener("click", startQuiz);
-// nextButton.addEventListener("click", () => {
-//   currentQuestionIndex++;
-//   resetState;
-// });
 
 function startQuiz() {
   setTime();
@@ -94,11 +97,12 @@ function resetState() {
 }
 
 function selectAnswer(event) {
-  
+  questionsAttempted++;
+
   var btnClickedName = event.id;
   var btnIsCorrect = document.getElementById(btnClickedName).getAttribute("isCorrect");
 
-  console.log(btnIsCorrect)
+  
   if (btnIsCorrect == "true") {
     document.getElementById("info").innerHTML = "Correct Answer";
     document.getElementById('isCorrect-answer').classList.remove("hide")
@@ -131,3 +135,14 @@ function setTime() {
     }
   }, 1000);
 }
+
+function endGame () {
+  if (questionsAttempted<totalQuestions) {
+    console.log("game is over")
+  
+  //   answerButtonsEl.classList.add("hide");
+  // questionEl.classList.add("hide");
+  // welcomePage.classList.remove("hide");
+  // welcomePage.innerHTML("Quiz is over.");
+  }
+  }
