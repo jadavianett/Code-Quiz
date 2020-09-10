@@ -4,18 +4,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0;
-    margin: 0;
+    padding: 0px;
+    margin: 0px;
     height: 80vh;
     width: 100vw;
 
 }
 
-/* not working for some reason  */
-.btn:hover {
-    border-color: black;
-
-}
 /* not working for some reason */
 .start-btn {
     font-size: 1.4 rem;
