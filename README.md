@@ -19,3 +19,5 @@ I spent a great deal of time spinning my wheels for this assignment, but I made 
 ## Links 
 Link to deployed application: https://jadavianett.github.io/Code-Quiz/ 
 Link to GitHub repository: https://github.com/jadavianett/Code-Quiz 
+
+![alt text](quiz-homepage.png "Code quiz")
